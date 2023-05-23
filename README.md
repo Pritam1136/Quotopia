@@ -7,7 +7,7 @@ If you would like to contribute to the Qutopia project, please follow the steps 
 1. **Fork the Repository**: Start by forking this repository, creating your copy of the project under your GitHub account. You can do this by clicking on the "Fork" button on the top right corner of the repository page.
 
 2. **Clone the Repository**: Clone the forked repository to your local development environment using the following command in your terminal:
-```https://github.com/your-username/quotopia.git```
+``` git clone https://github.com/your-username/quotopia.git```
 
 3. **Navigate to the Project Directories**: After cloning the repository, open two separate terminal windows and navigate to the root directory of the project. In one terminal, enter the following command to navigate to the `client` folder:
  ```cd client```
