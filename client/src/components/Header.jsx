@@ -15,9 +15,7 @@ const Header = () => {
         <nav className={`sm:block ${isNavOpen ? "block" : "hidden"}`}>
           <ul className="flex space-x-4">
             <li>
-              <a href="#" className="hover:text-gray-300">
-                Docs
-              </a>
+              <Link to="/docs">Docs</Link>
             </li>
             <li>
               <a href="#" className="hover:text-gray-300">
