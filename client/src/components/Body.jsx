@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 // import FontAwesomeIcon from "@fortawesome/free-solid-svg-icons";
@@ -40,7 +42,7 @@ function Body() {
         </button>
       </div>
       <div className="my-28 flex justify-center align-middle text-3xl ">
-        <FontAwesomeIcon icon={faArrowDown} />
+        <FontAwesomeIcon icon={faArrowDown} bounce />
       </div>
       <div className="flex items-center justify-center">
         <div className=" flex max-w-screen-md justify-center bg-slate-700 sm:m-14 ">
