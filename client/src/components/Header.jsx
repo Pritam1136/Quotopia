@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,7 +12,9 @@ const Header = () => {
   return (
     <header className="bg-gray-700 py-7 text-white">
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <h1 className=" text-lg font-bold sm:text-2xl">Your Quote Generator</h1>
+        <h1 className=" text-lg font-bold sm:text-2xl">
+          <Link to="/">QUOTOPIA</Link>{" "}
+        </h1>
         <nav className={`sm:block ${isNavOpen ? "block" : "hidden"}`}>
           <ul className="flex space-x-4">
             <li>

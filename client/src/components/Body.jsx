@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // import FontAwesomeIcon from "@fortawesome/free-solid-svg-icons";
 import {
@@ -10,17 +11,23 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Body() {
+  const [data, setData] = useState("");
+  const [source, setSource] = useState("");
+
   async function quoteData(event) {
     event.preventDefault();
     const response = await fetch("http://localhost:5174/api/quote")
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .then((data) => {
+        setData(data.quote);
+        setSource(data.source);
+      })
+      .catch((error) => setData("Error on getting data."));
   }
   return (
     <div className="font-serif">
       <h1 className="mx-12 mb-8 mt-36 flex justify-center font-mono  text-5xl text-gray-700 sm:text-7xl">
-        Quotopia
+        Your quote generator
       </h1>
       <p className=" m-7 mt-12 flex h-7 justify-center p-1  align-middle text-xl font-thin ">
         Fuel your applications with a constant stream of thought-provoking
@@ -32,7 +39,8 @@ function Body() {
       </p>
       <div className="mt-16 flex justify-center">
         <button className="m-5 rounded-2xl p-3  outline transition duration-300 ease-in hover:bg-slate-600 hover:text-white">
-          GET STARTED
+          <Link to="/docs"> GET STARTED </Link>
+
           <FontAwesomeIcon className="p-2  align-middle" icon={faAngleRight} />
         </button>
 
@@ -64,14 +72,11 @@ function Body() {
       </button>
       <div className="items-centre flex justify-center">
         <div className="flex max-w-screen-md justify-center bg-slate-700 sm:m-14">
-          <div className="m-5 p-1 text-white">
-            quote: 'In cricket, my superhero is Sachin Tendulkar. He h…ways been
-            my hero and will continue to remain so.', source: 'Virat Kohli'
-          </div>
+          <div className="m-5 p-1 text-white">{data}</div>
         </div>
       </div>
       <div className="my-24 flex justify-center align-middle font-mono font-semibold">
-        This thought is by Dhananjay Kar.
+        This thought is by {source}
       </div>
     </div>
   );
