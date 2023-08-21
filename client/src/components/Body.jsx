@@ -22,7 +22,10 @@ function Body() {
         setData(data.quote);
         setSource(data.source);
       })
-      .catch((error) => setData("Error on getting data."));
+      .catch((error) => {
+        setData("Error on getting data.");
+        setSource("");
+      });
   }
   return (
     <div className="font-serif">
@@ -49,7 +52,7 @@ function Body() {
           <FontAwesomeIcon className="p-2 align-middle" icon={faMugSaucer} />
         </button>
       </div>
-      <div className="my-28 flex justify-center align-middle text-3xl ">
+      <div className="my-28 flex justify-center align-middle text-5xl ">
         <FontAwesomeIcon icon={faArrowDown} bounce />
       </div>
       <div className="flex items-center justify-center">
@@ -64,20 +67,24 @@ function Body() {
           </div>
         </div>
       </div>
-      <button
-        className="mx-14 my-7 rounded-2xl p-3  outline transition duration-500 ease-in-out hover:bg-slate-600 hover:text-white"
-        onClick={quoteData}
-      >
-        RUN
-      </button>
+      <div className="m-8 flex justify-center align-middle">
+        <button
+          className="rounded-2xl p-3 align-middle  outline transition duration-500 ease-in-out hover:bg-slate-600 hover:text-white"
+          onClick={quoteData}
+        >
+          RUN
+        </button>
+      </div>
       <div className="items-centre flex justify-center">
         <div className="flex max-w-screen-md justify-center bg-slate-700 sm:m-14">
           <div className="m-5 p-1 text-white">{data}</div>
         </div>
       </div>
-      <div className="my-24 flex justify-center align-middle font-mono font-semibold">
-        This thought is by {source}
-      </div>
+      {source && (
+        <div className="my-24 flex justify-center align-middle font-mono font-semibold">
+          This thought is by {source}
+        </div>
+      )}
     </div>
   );
 }
